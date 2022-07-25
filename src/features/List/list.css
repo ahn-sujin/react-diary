@@ -1,0 +1,22 @@
+.list_area{
+    display: flex;
+    padding-top: 50px;
+}
+.list_area .box{
+    /* padding: 10px 0; */
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+.list_area .box > p {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ced4da;
+}
+.list_area .box .date{
+    
+}
+.list_area .box .title{
+    
+}
+.list_area .box .contents{
+    border-bottom: none;
+}

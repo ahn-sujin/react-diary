@@ -1,0 +1,19 @@
+header{
+    border-bottom: 1px solid #ced4da;
+}
+header > .inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+.logo{
+    font-size: 30px;
+}
+.logo::before{
+    content:'📔';
+    display: inline-block;
+    margin-right: 5px;
+}

@@ -15,8 +15,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
+	font-size: 14px;
+	color: #333;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -61,4 +61,15 @@ body {
 .container{
   width: 1200px;
   margin: 0 auto;
+}
+
+/* 버튼 */
+.btn {
+	height: 35px;
+	line-height: 33px;
+	padding: 0 20px;
+	background: #f8f9fa;
+	border: 1px solid #ced4da;
+	border-radius: 8px;
+	font-weight: 700;
 }
