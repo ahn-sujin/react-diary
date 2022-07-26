@@ -46,6 +46,9 @@ a {
   text-decoration: none;
   color: #000;
 }
+textarea{
+	resize: none;
+}
 
 /*============== common ==============*/
 body {
@@ -65,17 +68,55 @@ body {
 
 /* 버튼 */
 .btn {
+	display: block;
 	height: 35px;
 	line-height: 33px;
 	padding: 0 20px;
-	background: #fff;
-	border: 1px solid #ced4da;
 	border-radius: 8px;
 	font-weight: 500;
+	cursor: pointer;
+}
+.btn_lg{
+	height: 50px;
+	line-height: 48px;
+	padding: 0 40px;
+	margin: 0 auto 50px;
+}
+.btn_white{
+	background: #fff;
+	border: 1px solid #ced4da;
 	color: #868e96;
 	transition: 0.3s;
 }
-.btn:hover{
+.btn_white:hover{
 	background: #f1f3f5;
 }
+.btn_black{
+	background: #343a40;
+	border: 1px solid #343a40;
+	color: #fff;
+}
 
+
+.tag_wrap{
+	display: flex;
+	align-items: center;
+	padding: 10px 20px 0px;
+}
+.tag{
+	min-width: 50px;
+	height: 25px;
+	line-height: 23px;
+	padding: 0 10px;
+	margin-right: 10px;
+	background: #fafabe;
+	border: 1px solid #ffe650;
+	border-radius: 8px;
+	font-size: 12px;
+	font-weight: 700;
+	color: #ffb400;
+	text-align: center;
+}
+.tag:last-of-type{
+	margin-right: 0;
+}

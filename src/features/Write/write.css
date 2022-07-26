@@ -1,0 +1,38 @@
+.write_area{
+    padding-top: 50px;
+}
+.write_area .date{
+    font-size: 24px;
+    font-weight: 700;
+}
+.write_area input{
+    border: 1px solid #ced4da;
+}
+.write_area .title{
+    width: 1180px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 13px 10px;
+    border-radius: 10px;
+}
+.write_area textarea{
+    width: 1180px;
+    min-height: 300px;
+    padding: 13px 10px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+.write_area .input_area{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+.write_area .tag_name{
+    padding: 9px 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+.write_area .tag_wrap{
+    padding: 10px 0 0;
+}

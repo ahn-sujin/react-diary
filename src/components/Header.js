@@ -5,7 +5,7 @@ const Header = () => {
         <header>
             <div className="inner">
                 <h1 className="logo">일기장</h1>
-                <button className="btn">일기 쓰기</button>
+                <button className="btn btn_white">일기 쓰기</button>
             </div>  
         </header>
     )
