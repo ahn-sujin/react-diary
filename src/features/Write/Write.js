@@ -8,7 +8,7 @@ const Write = () => {
                 <form>
                     <input className="title" type="text" placeholder="제목을 입력하세요"></input>
                     <textarea placeholder="내용을 입력하세요"></textarea>
-                    <div class="input_area">
+                    <div className="input_area">
                         <input className="tag_name" type="text" placeholder="태그를 입력해주세요"></input>
                         <button className="btn btn_white">적용</button>
                     </div>
