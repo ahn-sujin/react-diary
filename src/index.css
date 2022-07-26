@@ -100,8 +100,9 @@ body {
 
 .tag_wrap{
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	padding: 10px 20px 0px;
+	padding: 0px 20px;
 }
 .tag{
 	min-width: 50px;
@@ -109,6 +110,7 @@ body {
 	line-height: 23px;
 	padding: 0 10px;
 	margin-right: 10px;
+	margin-top: 10px;
 	background: #fafabe;
 	border: 1px solid #ffe650;
 	border-radius: 8px;
