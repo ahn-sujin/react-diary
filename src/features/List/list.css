@@ -1,7 +1,7 @@
 .list_area{
     display: flex;
     flex-wrap: wrap;
-    padding-top: 50px;
+    padding: 50px 0;
 }
 .list_area .box{
     width: calc((100% - 66px) / 3);
