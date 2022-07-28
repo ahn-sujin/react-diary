@@ -19,26 +19,28 @@ const List = () => {
   return (
     <div className="container">
       <ul className="list_area">
-        {diary.map(data => (
-          <li
-            key={data.id}
-            className="box"
-            onClick={() => {
-              goToDetail(data.id);
-            }}
-          >
-            <p className="date">{data.date}</p>
-            <p className="title">{data.title}</p>
-            <p className="contents">{data.contents}</p>
-            <ul className="tag_wrap">
-              {data.tag.map(tag => (
-                <li key={tag.id} className="tag">
-                  {tag.name}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
+        {diary
+          .map(data => (
+            <li
+              key={data.id}
+              className="box"
+              onClick={() => {
+                goToDetail(data.id);
+              }}
+            >
+              <p className="date">{data.date}</p>
+              <p className="title">{data.title}</p>
+              <p className="contents">{data.contents}</p>
+              <ul className="tag_wrap">
+                {data.tag.map(tag => (
+                  <li key={tag.id} className="tag">
+                    {tag.name}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))
+          .reverse()}
       </ul>
     </div>
   );
