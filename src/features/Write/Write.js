@@ -5,13 +5,11 @@ import './write.css';
 const Write = () => {
     const year = new Date().getFullYear();
     const month = String(new Date().getMonth() + 1).padStart(2,'0');
-    const date = String(new Date().getDate()).padStart(2,'0');
+    const day = String(new Date().getDate()).padStart(2,'0');
 
-    const [write, setWrite] = useState({
-        date: `${year}.${month}.${date}`,
-        title : '',
-        contents: ''
-    });
+    const [date, setDate] = useState( `${year}.${month}.${day}`);
+    const [title, setTitle] = useState('');
+    const [contents, setContents] = useState('');
     const [tag, setTag] = useState([]);
 
     const navigate = useNavigate();
@@ -19,24 +17,18 @@ const Write = () => {
         navigate('/');
     }
 
-    const postTitle = (e) => {
-        console.log(e.target.value);
-    };
-    const postContents = (e) => {
-        console.log(e.target.value);
-    };
-
     const diarySave = (e) => {
         e.preventDefault();
+
         fetch('http://localhost:4000/diary',{
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
             },
             body: JSON.stringify({
-                date: write.date, 
-                title: write.title,
-                contents: write.contents,
+                date: date,
+                title: title,
+                contents: contents,
                 tag: tag
             })
         })
@@ -52,10 +44,20 @@ const Write = () => {
     return(
         <div className = "container">
             <div className="write_area">
-                <p className="date">{write.date}</p>
+                <p className="date">{date}</p>
                 <form>
-                    <input className="title" onChange={postTitle} value={write.title} name="title" type="text" placeholder="제목을 입력하세요"></input>
-                    <textarea placeholder="내용을 입력하세요" onChange={postContents} value={write.contents} name="contents"></textarea>
+                    <input 
+                        className="title" 
+                        onChange={(e) => setTitle(e.target.value)} 
+                        value={title} 
+                        name="title" 
+                        type="text" 
+                        placeholder="제목을 입력하세요" />
+                    <textarea 
+                        onChange={(e) => setContents(e.target.value)} 
+                        value={contents} 
+                        name="contents"
+                        placeholder="내용을 입력하세요" />
                     <div className="input_area">
                         <input className="tag_name" type="text" placeholder="태그를 입력해주세요"></input>
                         <button className="btn btn_white">적용</button>
