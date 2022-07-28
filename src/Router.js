@@ -9,9 +9,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<List />}></Route>
-        <Route path="/detail/:id" element={<Detail />}></Route>
-        <Route path="/write" element={<Write />}></Route>
+        <Route path="/" element={<List />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/write" element={<Write />} />
       </Routes>
     </BrowserRouter>
   );
