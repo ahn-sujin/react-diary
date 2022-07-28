@@ -1,20 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './write.css';
 
 const Write = () => {
+  const navigate = useNavigate();
+  const goToList = () => {
+    navigate('/');
+  };
+
   const year = new Date().getFullYear();
   const month = String(new Date().getMonth() + 1).padStart(2, '0');
   const day = String(new Date().getDate()).padStart(2, '0');
 
-  const [date, setDate] = useState(`${year}.${month}.${day}`);
-  const [title, setTitle] = useState('');
-  const [contents, setContents] = useState('');
+  const [write, setWrite] = useState({
+    date: '',
+    title: '',
+    contents: '',
+  });
   const [tag, setTag] = useState([]);
 
-  const navigate = useNavigate();
-  const goToList = () => {
-    navigate('/');
+  useEffect(() => {
+    setWrite(prev => ({ ...prev, date: `${year}.${month}.${day}` }));
+  }, []);
+
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setWrite(prev => ({ ...prev, [name]: value }));
   };
 
   const diarySave = e => {
@@ -26,9 +37,9 @@ const Write = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        date: date,
-        title: title,
-        contents: contents,
+        date: write.date,
+        title: write.title,
+        contents: write.contents,
         tag: tag,
       }),
     })
@@ -41,35 +52,22 @@ const Write = () => {
       });
   };
 
-  // const InputTag = (text) => {
-  //     if (text === '') {
-  //         return;
-  //     } else {
-  //         const tagList = {
-  //             id: nextId,
-  //             text,
-  //         };
-  //         setTag(tag => tag.concat(tagList));
-  //         nextId++;
-  //     }
-  // };
-
   return (
     <div className="container">
       <div className="write_area">
-        <p className="date">{date}</p>
+        <p className="date">{write.date}</p>
         <form>
           <input
             className="title"
-            onChange={e => setTitle(e.target.value)}
-            value={title}
+            onChange={handleInput}
+            value={write.title}
             name="title"
             type="text"
             placeholder="제목을 입력하세요"
           />
           <textarea
-            onChange={e => setContents(e.target.value)}
-            value={contents}
+            onChange={handleInput}
+            value={write.contents}
             name="contents"
             placeholder="내용을 입력하세요"
           />
