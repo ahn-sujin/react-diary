@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Tag from './components/Tag';
 import './write.css';
+
+let nextId = 1;
 
 const Write = () => {
   const navigate = useNavigate();
@@ -52,6 +55,19 @@ const Write = () => {
       });
   };
 
+  const onInsertTag = name => {
+    if (name === '') {
+      return;
+    } else {
+      const tagList = {
+        id: nextId,
+        name,
+      };
+      setTag(tag => tag.concat(tagList));
+      nextId++;
+    }
+  };
+
   return (
     <div className="container">
       <div className="write_area">
@@ -71,17 +87,7 @@ const Write = () => {
             name="contents"
             placeholder="내용을 입력하세요"
           />
-          <div className="input_area">
-            <input
-              className="tag_name"
-              type="text"
-              placeholder="태그를 입력해주세요"
-            />
-            <button className="btn btn_white">적용</button>
-          </div>
-          <div className="tag_wrap">
-            <div className="tag">테스트</div>
-          </div>
+          <Tag onInsertTag={onInsertTag} tag={tag} />
           <button className="btn btn_black btn_lg" onClick={diarySave}>
             저장하기
           </button>
