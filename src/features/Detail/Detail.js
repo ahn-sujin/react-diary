@@ -25,16 +25,17 @@ const Detail = () => {
   const { date, title, contents, tag } = diary;
 
   const onDelete = () => {
-    if (window.confirm('삭제하시겠습니까?')) {
-      fetch(`http://localhost:4000/diary/${params.id}`, {
-        method: 'DELETE',
-      }).then(res => {
-        if (res.ok) {
+    fetch(`http://localhost:4000/diary/${params.id}`, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res) {
+          alert('삭제하시겠습니까?');
           setDiary({ id: 0 });
           goToList();
         }
       });
-    }
   };
 
   if (diary.id === 0) {
