@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './detail.css';
 
 const Detail = () => {
@@ -9,15 +9,37 @@ const Detail = () => {
     contents: '',
     tag: [],
   });
+
   const params = useParams();
+  const navigate = useNavigate();
+  const goToList = () => {
+    navigate('/');
+  };
 
   useEffect(() => {
     fetch(`http://localhost:4000/diary/${params.id}`)
       .then(res => res.json())
       .then(data => setDiary(data));
-  }, []);
+  }, [params.id]);
 
   const { date, title, contents, tag } = diary;
+
+  const onDelete = () => {
+    if (window.confirm('삭제하시겠습니까?')) {
+      fetch(`http://localhost:4000/diary/${params.id}`, {
+        method: 'DELETE',
+      }).then(res => {
+        if (res.ok) {
+          setDiary({ id: 0 });
+          goToList();
+        }
+      });
+    }
+  };
+
+  if (diary.id === 0) {
+    return null;
+  }
 
   return (
     <div className="container">
@@ -34,6 +56,9 @@ const Detail = () => {
             ))}
           </ul>
         </div>
+        <button className="btn btn_black btn_lg" onClick={onDelete}>
+          삭제하기
+        </button>
       </div>
     </div>
   );
