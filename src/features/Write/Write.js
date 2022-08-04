@@ -68,6 +68,10 @@ const Write = () => {
     }
   };
 
+  const removeTag = id => {
+    setTag(tag => tag.filter(tags => tags.id !== id)); //tag의 id가 인자로 받아온 id와 일치하지 않는 것들만 남겨둔다.
+  };
+
   return (
     <div className="container">
       <div className="write_area">
@@ -87,7 +91,7 @@ const Write = () => {
             name="contents"
             placeholder="내용을 입력하세요"
           />
-          <Tag onInsertTag={onInsertTag} tag={tag} />
+          <Tag onInsertTag={onInsertTag} tag={tag} removeTag={removeTag} />
           <button className="btn btn_black btn_lg" onClick={diarySave}>
             저장하기
           </button>

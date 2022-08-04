@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Tag = ({ onInsertTag, tag }) => {
+const Tag = ({ onInsertTag, tag, removeTag }) => {
   const [tagName, setTagName] = useState('');
 
   const handleTagName = e => {
@@ -31,6 +31,7 @@ const Tag = ({ onInsertTag, tag }) => {
         {tag.map(list => (
           <li className="tag" key={list.id}>
             {list.name}
+            <button onClick={() => removeTag(list.id)}>X</button>
           </li>
         ))}
       </ul>
