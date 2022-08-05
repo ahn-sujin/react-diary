@@ -15,6 +15,9 @@ const Detail = () => {
   const goToList = () => {
     navigate('/');
   };
+  const goToModify = id => {
+    navigate(`/modify/${id}`);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:4000/diary/${params.id}`)
@@ -57,9 +60,17 @@ const Detail = () => {
             ))}
           </ul>
         </div>
-        <button className="btn btn_black btn_lg" onClick={onDelete}>
-          삭제하기
-        </button>
+        <div className="btn_wrap">
+          <button className="btn btn_black btn_lg" onClick={onDelete}>
+            삭제하기
+          </button>
+          <button
+            className="btn btn_white btn_lg"
+            onClick={() => goToModify(diary.id)}
+          >
+            수정하기
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -148,6 +148,17 @@ body {
 }
 
 /* 버튼 */
+.btn_wrap {
+  display: flex;
+  justify-content: center;
+}
+.btn_wrap .btn_black {
+  margin: 50px 10px 0 0;
+}
+.btn_wrap .btn_white {
+  margin: 50px 0px 0 10px;
+}
+
 .btn {
   display: block;
   height: 35px;

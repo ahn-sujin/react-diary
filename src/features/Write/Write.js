@@ -69,7 +69,7 @@ const Write = () => {
   };
 
   const removeTag = id => {
-    setTag(tag => tag.filter(tags => tags.id !== id)); //tag의 id가 인자로 받아온 id와 일치하지 않는 것들만 남겨둔다.
+    setTag(tag => tag.filter(tags => tags.id !== id));
   };
 
   return (
