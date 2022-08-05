@@ -186,8 +186,8 @@ body {
 }
 .tag {
   min-width: 50px;
-  height: 25px;
-  line-height: 23px;
+  height: 30px;
+  line-height: 30px;
   padding: 0 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -201,4 +201,11 @@ body {
 }
 .tag:last-of-type {
   margin-right: 0;
+}
+.tag > button {
+  margin-left: 5px;
+  background: #fff;
+  border: 1px solid #ffe650;
+  color: #ffb400;
+  cursor: pointer;
 }
